@@ -21,8 +21,7 @@ android {
             myVersionString = "1.0"
         }
         versionName myVersionString
-
-
+        
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
