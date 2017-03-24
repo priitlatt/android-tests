@@ -1,7 +1,8 @@
-import groovy.json.JsonSlurper
 import java.text.DateFormat
 
 apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
+
 
 android {
     compileSdkVersion 25
@@ -34,6 +35,12 @@ android {
             testCoverageEnabled true
         }
     }
+
+//    testVariants.all { variant ->
+//        println variant
+////        variant.unitTest.finalizedBy coverageReport
+//    }
+
 }
 
 dependencies {
@@ -80,3 +87,21 @@ task myCustomTask << {
 //    assemble.dependsOn(sayAssembleStarted)
 //    assembleAndNotify.dependsOn(assemble)
 //}
+
+task coverageReport(type: JacocoReport) {
+    reports {
+        xml.enabled = true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+    executionData = fileTree(dir: "$buildDir", includes: ["jacoco/testDebugUnitTest.exec"])
+}
+
+gradle.projectsEvaluated {
+    testDebugUnitTest.finalizedBy coverageReport
+}
