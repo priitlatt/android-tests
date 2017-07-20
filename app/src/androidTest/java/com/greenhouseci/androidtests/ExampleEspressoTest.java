@@ -75,6 +75,10 @@ public class ExampleEspressoTest {
         isNotDisplayed(tv);
     }
 
+    @Test
+    public void thisWillFail() throws Exception {
+        assertEquals(true, false);
+    }
 //    @Test
 //    public void testAddItemsToList() throws Exception {
 //        DataInteraction lv = onData(anything()).inAdapterView(withId(R.id.lv_items));
