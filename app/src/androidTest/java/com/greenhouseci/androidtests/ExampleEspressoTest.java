@@ -82,6 +82,6 @@ public class ExampleEspressoTest {
         addItemToList("item 1");
 
         lv.atPosition(0).onChildView(withId(R.id.tv_list_item)).check(matches(withText("item 0")));
-        lv.atPosition(1).onChildView(withId(R.id.tv_list_item)).check(matches(withText("item 1")));
+        lv.atPosition(1).onChildView(withId(R.id.tv_list_item)).check(matches(withText("item 11")));
     }
 }
