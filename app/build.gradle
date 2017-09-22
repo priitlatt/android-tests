@@ -23,9 +23,12 @@ android {
         versionName myVersionString
 
 
-        if (System.getenv()["DO_NOT_USE_CUSTOM_TEST_RUNNER"]) {
+        def doNotUseCustomTestRunner = System.getenv()["DO_NOT_USE_CUSTOM_TEST_RUNNER"]
+        if (doNotUseCustomTestRunner) {
+            println "\$DO_NOT_USE_CUSTOM_TEST_RUNNER = $DO_NOT_USE_CUSTOM_TEST_RUNNER -> Using AndroidJUnitRunner"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         } else {
+            println "\$DO_NOT_USE_CUSTOM_TEST_RUNNER not set -> Using MyAndroidJUnitRunner"
             testInstrumentationRunner "com.greenhouseci.androidtests.MyAndroidJUnitRunner"
         }
     }
