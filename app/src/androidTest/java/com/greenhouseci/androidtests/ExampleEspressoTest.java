@@ -1,6 +1,5 @@
 package com.greenhouseci.androidtests;
 
-import android.support.test.espresso.DataInteraction;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -11,7 +10,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -21,7 +19,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.anything;
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -84,4 +82,9 @@ public class ExampleEspressoTest {
 //        lv.atPosition(0).onChildView(withId(R.id.tv_list_item)).check(matches(withText("item 0")));
 //        lv.atPosition(1).onChildView(withId(R.id.tv_list_item)).check(matches(withText("item 1")));
 //    }
+
+    @Test
+    public void testApplicationName() throws Exception {
+        assertEquals("TestApplication", activityRule.getActivity().getApplication().getClass().getSimpleName());
+    }
 }
