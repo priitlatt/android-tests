@@ -22,8 +22,12 @@ android {
         }
         versionName myVersionString
 
-//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner "com.greenhouseci.androidtests.MyAndroidJUnitRunner"
+
+        if (System.getenv()["DO_NOT_USE_CUSTOM_TEST_RUNNER"]) {
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        } else {
+            testInstrumentationRunner "com.greenhouseci.androidtests.MyAndroidJUnitRunner"
+        }
     }
 
     buildTypes {
