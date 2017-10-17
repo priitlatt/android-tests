@@ -23,6 +23,7 @@ class FormatterTestKotlin {
                 " \t $reference",
                 " \n  $reference"
         )
+        1 equals 2
         testStrings.map { formatter.stripLeft(it) equals reference }
     }
 
@@ -37,6 +38,7 @@ class FormatterTestKotlin {
                 "$reference \t ",
                 "$reference \n  "
         )
+        1 equals 2
         testStrings.map { formatter.stripRight(it) equals reference }
     }
 
