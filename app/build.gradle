@@ -33,6 +33,20 @@ android {
             testCoverageEnabled true
         }
     }
+
+    flavorDimensions "wormhole"
+
+    productFlavors {
+        demo {
+            dimension "wormhole"
+            versionNameSuffix "-demo"
+        }
+
+        full {
+            dimension "wormhole"
+            versionNameSuffix "-full"
+        }
+    }
 }
 
 dependencies {
