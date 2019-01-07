@@ -11,15 +11,11 @@ android {
         targetSdkVersion 27
         versionCode 1
 
-        def myVersionString
-        if (System.getenv()["CI"]) {
-            def plainFormatter = DateFormat.instance
-            def today = new Date()
-            myVersionString = plainFormatter.format(today)
-        } else {
-            myVersionString = "1.0"
+        if (System.getenv("CI")) {
+            def buildNumber = System.getenv("NEVERCODE_BUILD_NUMBER")
+            versionName = "1.0." + buildNumber
+            versionCode = Integer.valueOf(buildNumber)
         }
-        versionName myVersionString
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
