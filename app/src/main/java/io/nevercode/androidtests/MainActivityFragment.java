@@ -1,4 +1,4 @@
-package com.greenhouseci.androidtests;
+package io.nevercode.androidtests;
 
 import android.content.Context;
 import android.os.Bundle;

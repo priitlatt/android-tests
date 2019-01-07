@@ -1,4 +1,4 @@
-package com.greenhouseci.androidtests;
+package io.nevercode.androidtests;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.greenhouseci.androidtests", appContext.getPackageName());
+        assertEquals("io.nevercode.androidtests", appContext.getPackageName());
     }
 }

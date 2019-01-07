@@ -1,4 +1,4 @@
-package com.greenhouseci.androidtests;
+package io.nevercode.androidtests;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

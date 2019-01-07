@@ -1,4 +1,4 @@
-package com.greenhouseci.androidtests;
+package io.nevercode.androidtests;
 
 /**
  * Created by priit on 20.09.16.
