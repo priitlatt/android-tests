@@ -9,7 +9,7 @@ android {
         targetSdkVersion 28
         versionCode 1
 
-        if (System.getenv("CI")) {
+        if (System.getenv("NEVERCODE_BUILD_NUMBER")) {
             def buildNumber = System.getenv("NEVERCODE_BUILD_NUMBER")
             versionName = "1.0." + buildNumber
             versionCode = Integer.valueOf(buildNumber)
