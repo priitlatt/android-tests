@@ -12,7 +12,9 @@ android {
         if (System.getenv("NEVERCODE_BUILD_NUMBER")) {
             def buildNumber = System.getenv("NEVERCODE_BUILD_NUMBER")
             versionName = "1.0." + buildNumber
-            versionCode = Integer.valueOf(buildNumber)
+            if (Integer.valueOf(buildNumber) > 0) {
+                versionCode = Integer.valueOf(buildNumber)
+            }
         }
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
